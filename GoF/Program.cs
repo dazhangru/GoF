@@ -16,11 +16,20 @@ namespace GoF
             //Console.Read(); 
             #endregion
             #region 工厂方法
-            ApplePizzaFactory factory = new ApplePizzaFactory();
+            //ApplePizzaFactory factory = new ApplePizzaFactory();
+            //factory.GetPizza();
+            //BuffPizzaFactory buffPizzaFactory = new BuffPizzaFactory();
+            //buffPizzaFactory.GetPizza();
+            //Console.ReadKey();
+            #endregion
+            #region 抽象工厂
+            Apple_PizzaFactory factory = new Apple_PizzaFactory();
+            Buff_PizzaFactory buff_PizzaFactory = new Buff_PizzaFactory();
             factory.GetPizza();
-            BuffPizzaFactory buffPizzaFactory = new BuffPizzaFactory();
-            buffPizzaFactory.GetPizza();
-            Console.ReadKey();
+            factory.GetPrice();
+            buff_PizzaFactory.GetPizza();
+            buff_PizzaFactory.GetPrice();
+            Console.ReadKey(); 
             #endregion
         }
     }
