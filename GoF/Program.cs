@@ -10,9 +10,18 @@ namespace GoF
     {
         static void Main(string[] args)
         {
-            SimpleFactory factory = new SimpleFactory();
-            Console.WriteLine(factory.GetPizza("apple"));
-            Console.Read();
+            #region 简单工厂
+            //SimpleFactory factory = new SimpleFactory();
+            //Console.WriteLine(factory.GetPizza("apple"));
+            //Console.Read(); 
+            #endregion
+            #region 工厂方法
+            ApplePizzaFactory factory = new ApplePizzaFactory();
+            factory.GetPizza();
+            BuffPizzaFactory buffPizzaFactory = new BuffPizzaFactory();
+            buffPizzaFactory.GetPizza();
+            Console.ReadKey();
+            #endregion
         }
     }
 }
