@@ -10,6 +10,9 @@ namespace GoF
     {
         static void Main(string[] args)
         {
+            SimpleFactory factory = new SimpleFactory();
+            Console.WriteLine(factory.GetPizza("apple"));
+            Console.Read();
         }
     }
 }
