@@ -23,13 +23,13 @@ namespace GoF
             //Console.ReadKey();
             #endregion
             #region 抽象工厂
-            Apple_PizzaFactory factory = new Apple_PizzaFactory();
-            Buff_PizzaFactory buff_PizzaFactory = new Buff_PizzaFactory();
-            factory.GetPizza();
-            factory.GetPrice();
-            buff_PizzaFactory.GetPizza();
-            buff_PizzaFactory.GetPrice();
-            Console.ReadKey(); 
+            //Apple_PizzaFactory factory = new Apple_PizzaFactory();
+            //Buff_PizzaFactory buff_PizzaFactory = new Buff_PizzaFactory();
+            //factory.GetPizza();
+            //factory.GetPrice();
+            //buff_PizzaFactory.GetPizza();
+            //buff_PizzaFactory.GetPrice();
+            //Console.ReadKey(); 
             #endregion
         }
     }
