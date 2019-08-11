@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,19 +32,42 @@ namespace GoF
             //buff_PizzaFactory.GetPrice();
             //Console.ReadKey(); 
             #endregion
-            List<Teacher> teachers = new List<Teacher> { new Teacher { TeacherId = 1, Name = "王老师" }, new Teacher { TeacherId = 2, Name = "李老师" }, new Teacher { TeacherId = 3, Name = "吴老师" } };
-            List<Student> students = new List<Student> { new Student { StudentId = 101, Name = "小明同学", TeacherId = 1 }, new Student { StudentId = 102, Name = "小红同学", TeacherId = 2 }, new Student { StudentId = 103, Name = "阿水同学", TeacherId = 3 } };
-            List<Class> classes = new List<Class> { new Class { ClassId = 10001, Name = "三年一班", TeacherName = "王老师" }, new Class { ClassId = 10002, Name = "三年二班", TeacherName = "李老师" }, new Class { ClassId = 10003, Name = "三年三班", TeacherName = "吴老师" } };
-            foreach (var e in students)
-            {
-                e.TeacherName = teachers.FirstOrDefault(o => o.TeacherId == e.TeacherId)?.Name;
-                e.ClassName = classes.FirstOrDefault(o => o.TeacherName == e.TeacherName)?.Name;
-                Console.WriteLine($"学生姓名:{e.Name}");
-                Console.WriteLine($"学生的老师姓名:{e.TeacherName}");
-                Console.WriteLine($"学生的班级姓名:{e.ClassName}");
-            }
-            Console.Read();
+            //List<Teacher> teachers = new List<Teacher> { new Teacher { TeacherId = 1, Name = "王老师" }, new Teacher { TeacherId = 2, Name = "李老师" }, new Teacher { TeacherId = 3, Name = "吴老师" } };
+            //List<Student> students = new List<Student> { new Student { StudentId = 101, Name = "小明同学", TeacherId = 1 }, new Student { StudentId = 102, Name = "小红同学", TeacherId = 2 }, new Student { StudentId = 103, Name = "阿水同学", TeacherId = 3 } };
+            //List<Class> classes = new List<Class> { new Class { ClassId = 10001, Name = "三年一班", TeacherName = "王老师" }, new Class { ClassId = 10002, Name = "三年二班", TeacherName = "李老师" }, new Class { ClassId = 10003, Name = "三年三班", TeacherName = "吴老师" } };
+            //foreach (var e in students)
+            //{
+            //    e.TeacherName = teachers.FirstOrDefault(o => o.TeacherId == e.TeacherId)?.Name;
+            //    e.ClassName = classes.FirstOrDefault(o => o.TeacherName == e.TeacherName)?.Name;
+            //    Console.WriteLine($"学生姓名:{e.Name}");
+            //    Console.WriteLine($"学生的老师姓名:{e.TeacherName}");
+            //    Console.WriteLine($"学生的班级姓名:{e.ClassName}");
+            //}
+            //Console.Read();
         }
+    }
+    public class Order
+    {
+        public Customer Customer { get; set; }
+
+        public decimal GetTotal()
+        {
+            return 100M;
+        }
+    }
+    public class Customer
+    {
+        public string Name { get; set; }
+    }
+    public class OrderDto
+    {
+        public string CustomerName { get; set; }
+        public string Total { get; set; }
+    }
+    [Obsolete]
+    public class OrderProfile : Profile
+    {
+
     }
     public class Teacher
     {
