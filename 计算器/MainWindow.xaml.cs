@@ -91,5 +91,33 @@ catch (Exception)
         {
             System.Diagnostics.Process.Start("calc.exe");
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Principal.Text))
+            {
+                MessageBox.Show("请输入本金");
+                return;
+            }
+            double benjin = Convert.ToDouble(Principal.Text);
+            if (string.IsNullOrEmpty(Total_Month.Text))
+            {
+                MessageBox.Show("请输入月数");
+                return;
+            }
+            int yueshu = Convert.ToInt32(Total_Month.Text);
+            if (string.IsNullOrEmpty(Profit_Rate.Text))
+            {
+                MessageBox.Show("请输入每万份收益");
+                return;
+            }
+            double wanfen = Convert.ToDouble(Profit_Rate.Text);
+            for (int i = 0; i < yueshu; i++)
+            {
+                var lixi = benjin / 10000 * wanfen;
+                benjin = benjin + lixi;
+            }
+            MessageBox.Show($"总收益是:{benjin}");
+        }
     }
 }
