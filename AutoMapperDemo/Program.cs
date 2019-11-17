@@ -11,23 +11,27 @@ namespace AutoMapperDemo
     {
         static void Main(string[] args)
         {
-            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Order, OrderDto>());
-            //var mapper = config.CreateMapper();
-            //Order order = new Order { OrderId = 1000, Price = "100.00", ProductId = 1 };
-            //OrderDto dto = mapper.Map<OrderDto>(order);
-            Order order = new Order();
-            order.dto = new OrderDto();
-            order.dto.Price = "100";
-            order.dto.OrderId = 1;
-            order.dto.ProductName = "苹果";
-            order.Show();
+            //Action<T> 无返回值
+            MapperConfiguration config = new MapperConfiguration((cfg) =>
+            {
+                cfg.CreateMap<Order, OrderDto>();
+            });
+            var mapper = config.CreateMapper();
+            Order order = new Order { OrderId = 1000, Price = "100.00", ProductId = 1 };
+            OrderDto dto = mapper.Map<OrderDto>(order);
+
+            //order.dto = new OrderDto();
+            //order.dto.Price = "100";
+            //order.dto.OrderId = 1;
+            //order.dto.ProductName = "苹果";
+            //order.Show();
             Console.Read();
         }
     }
     class Order
     {
         private int productId;
-
+        public int ProductId { get; set; }
         public int OrderId { get; set; }
         public string Price { get; set; }
 
